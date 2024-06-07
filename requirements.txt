@@ -1,0 +1,7 @@
+Flask
+flask_sqlalchemy
+python-dotenv
+SQLAlchemy
+uuid
+flask_cors
+asyncio
