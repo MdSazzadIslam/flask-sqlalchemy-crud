@@ -1,8 +1,6 @@
 # flask-sqlalchemy-crud
 It's a simple Python Flask CRUD Application based on Flask-SQLAlchemy.
 
-# weather-rest-api-node
-
 💻 Technologies
 
 > Python
