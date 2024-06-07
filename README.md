@@ -10,8 +10,7 @@ before run the app you must create the following environnment variables:
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres
 
 
-`git clone https://github.com/MdSazzadIslam/flask-sqlalchemy-crud
+git clone https://github.com/MdSazzadIslam/flask-sqlalchemy-crud
 cd flask-sqlalchemy-crud
 pip install -r requirements.txt
 python src/server.py
-`
