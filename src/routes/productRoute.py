@@ -1,6 +1,5 @@
 from flask import Blueprint, request
 from controllers.productController import ProductController
-import asyncio
 
 products = Blueprint("products", __name__)
 

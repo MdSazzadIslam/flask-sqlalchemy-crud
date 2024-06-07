@@ -2,7 +2,6 @@ from models.product import Product
 from utils.db import db
 from typing import Tuple
 from sqlalchemy import select
-import asyncio
 
 class ProductController:
     @staticmethod
