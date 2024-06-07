@@ -1,22 +1,23 @@
 from models.product import Product
 from utils.db import db
 from typing import Tuple
+from sqlalchemy import select
 import asyncio
 
 class ProductController:
     @staticmethod
-    async def _commit_or_rollback():
+    def _commit_or_rollback():
         """
         Helper method to commit or rollback the current session.
         """
         try:
-            await db.session.commit()
+             db.session.commit()
         except:
-            await db.session.rollback()
-            raise
+             db.session.rollback()
+             raise
 
     @staticmethod
-    async def get_products() -> Tuple[dict, int]:
+    def get_products() -> Tuple[dict, int]:
         """
         Retrieve all products from the database.
 
@@ -24,7 +25,7 @@ class ProductController:
             Tuple: A tuple containing the list of products and the HTTP status code.
         """
         try:
-            products = await db.session.query(Product).all()
+            products = db.session.query(Product).all()
             products_list = [
                 {
                     "id": product.id,
@@ -39,7 +40,7 @@ class ProductController:
             return {"error": str(e)}, 500
 
     @staticmethod
-    async def get_product(product_id: int) -> Tuple[dict, int]:
+    def get_product(product_id: int) -> Tuple[dict, int]:
         """
         Retrieve a specific product by its ID.
 
@@ -50,7 +51,7 @@ class ProductController:
             Tuple: A tuple containing the product information and the HTTP status code.
         """
         try:
-            product = await db.session.query(Product).get(product_id)
+            product = db.session.query(Product).get(product_id)
             if not product:
                 return {"error": "Product not found"}, 404
             return {
@@ -62,7 +63,7 @@ class ProductController:
             return {"error": str(e)}, 500
 
     @staticmethod
-    async def create_product(data: dict) -> Tuple[dict, int]:
+    def create_product(data: dict) -> Tuple[dict, int]:
         """
         Create a new product.
 
@@ -85,7 +86,7 @@ class ProductController:
 
             new_product = Product(name=name, description=description)
             db.session.add(new_product)
-            await ProductController._commit_or_rollback()
+            ProductController._commit_or_rollback()
 
             return {"message": "Product created successfully"}, 201
 
@@ -93,7 +94,7 @@ class ProductController:
             return {"error": str(e)}, 500
 
     @staticmethod
-    async def update_product(product_id: int, data: dict) -> Tuple[dict, int]:
+    def update_product(product_id: int, data: dict) -> Tuple[dict, int]:
         """
         Update an existing product.
 
@@ -108,7 +109,7 @@ class ProductController:
             return {"error": "No product ID provided"}, 400
 
         try:
-            product = await db.session.query(Product).get(product_id)
+            product = db.session.query(Product).get(product_id)
             if not product:
                 return {"error": "Product not found"}, 404
 
@@ -124,14 +125,14 @@ class ProductController:
             if not name and not description:
                 return {"error": "At least 'name' or 'description' should be provided for update"}, 400
 
-            await ProductController._commit_or_rollback()
+            ProductController._commit_or_rollback()
 
             return {"message": "Product updated successfully"}, 200
         except Exception as e:
             return {"error": str(e)}, 500
 
     @staticmethod
-    async def delete_product(product_id: int) -> Tuple[dict, int]:
+    def delete_product(product_id: int) -> Tuple[dict, int]:
         """
         Delete a product.
 
@@ -145,12 +146,12 @@ class ProductController:
             return {"error": "No product ID provided"}, 400
 
         try:
-            product = await db.session.query(Product).get(product_id)
+            product = db.session.query(Product).get(product_id)
             if not product:
                 return {"error": "Product not found"}, 404
 
             db.session.delete(product)
-            await ProductController._commit_or_rollback()
+            ProductController._commit_or_rollback()
 
             return {"message": "Product deleted successfully"}, 200
         except Exception as e:
