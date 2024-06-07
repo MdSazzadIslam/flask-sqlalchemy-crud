@@ -22,7 +22,7 @@ To build and run this app locally you will need a few things:
 
 👷 How to run
 
-> git clone https://github.com/MdSazzadIslam/weather-rest-api.git
+> git clone https://github.com/MdSazzadIslam/flask-sqlalchemy-crud.git
 
 > cd flask-sqlalchemy-crud
 
