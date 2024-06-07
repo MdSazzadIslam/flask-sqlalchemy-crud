@@ -1,16 +1,35 @@
 # flask-sqlalchemy-crud
 It's a simple Python Flask CRUD Application based on Flask-SQLAlchemy.
 
-Installation with docker-compose
-git clone https://github.com/MdSazzadIslam/flask-sqlalchemy-crud
-cd flask-sqlalchemy-crud
-docker-compose up
+# weather-rest-api-node
 
-before run the app you must create the following environnment variables:
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres
+💻 Technologies
+
+> Python
+
+> Flask
+
+> SQLAlchemy
+
+> PostgreSQL
 
 
-git clone https://github.com/MdSazzadIslam/flask-sqlalchemy-crud
-cd flask-sqlalchemy-crud
-pip install -r requirements.txt
-python src/server.py
+📥 Pre-reqs
+
+To build and run this app locally you will need a few things:
+
+- Install python
+- Install postgreSQL
+- Install VS Code
+
+👷 How to run
+
+> git clone https://github.com/MdSazzadIslam/weather-rest-api.git
+
+> cd flask-sqlalchemy-crud
+
+> cd flask-sqlalchemy-crud
+
+> pip install -r requirements.txt
+
+> python src/server.py
