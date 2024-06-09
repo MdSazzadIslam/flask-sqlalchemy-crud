@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from config import DATABASE_CONNECTION_URI
-from routes.productRoute import products
+from routes.product_route import products
 from utils.db import db
 
 

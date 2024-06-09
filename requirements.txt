@@ -1,8 +1,8 @@
 Flask
 flask_sqlalchemy
 python-dotenv
-SQLAlchemy
 psycopg2
+SQLAlchemy
 uuid
 flask_cors
 asyncio
